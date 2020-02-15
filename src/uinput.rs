@@ -12,6 +12,9 @@ pub struct UInputDevice {
     raw: *mut raw::libevdev_uinput
 }
 
+/// TODO: wrap UInputDevice.raw in Arc<Mutex<...>>
+unsafe impl Send for UInputDevice {}
+
 impl UInputDevice {
     /// Create a uinput device based on the given libevdev device.
     ///

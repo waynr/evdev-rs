@@ -17,6 +17,9 @@ pub struct Device {
     pub(crate) raw: *mut raw::libevdev,
 }
 
+/// TODO: wrap UInputDevice.raw in Arc<Mutex<...>>
+unsafe impl Send for Device {}
+
 impl Device {
     /// Initialize a new libevdev device.
     ///
